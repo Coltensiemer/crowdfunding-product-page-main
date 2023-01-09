@@ -1,0 +1,242 @@
+/* <style>
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+</style> */
+
+:root {
+
+    /* Media widths */
+    --mobile: 375px; 
+    --desktop: 1440px; 
+
+
+    /* COLORS */
+    --Moderate-cyan: hsl(176, 50%, 47%); 
+    --Dark-cyan: hsl(176, 72%, 28%); 
+    --black:  hsl(0, 0%, 0%); 
+    --dark-gray: hsl(0, 0%, 48%); 
+
+
+    /* FONT SIZES  */
+    --font-size-small: 12px; 
+    --font-size-normal: 16px;
+    --font-size-large: 24px; 
+    
+
+    /* FONT WEIGHT */
+    --weight-light: 400; 
+    --weight-medium: 500; 
+    --weight-heavy: 700; 
+}
+
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+
+}
+
+main {
+ margin: 0;
+}
+
+
+
+/* HEADER START  */
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 175px;
+}
+
+.title {
+  color: white;
+  padding-left: 30px;
+}
+
+.hamburger { 
+    padding-right: 20px;
+}
+
+#hero {
+  position: absolute;
+  width: 100%;
+  height: 16em;
+  z-index: -1;
+  background-repeat: none;
+}
+
+ul {
+  display: none;
+}
+
+/* Header END */
+
+
+
+
+/* Start of Main containers */
+.mastercraft-container {
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   background-color: bisque;
+   margin: 0px 25px 25px;
+   padding: 25px;
+ 
+}
+
+
+
+.logo { 
+    position: relative;
+    top: -50px; 
+}
+
+h1, h2, p { 
+    text-align: center;
+    padding: .25em; 
+}
+
+.para { 
+    color: var(--dark-gray);
+    font-weight: var(--weight-light);
+}
+
+.backtoproj { 
+    padding: 1em;
+    width: 150px; 
+    /* Figure out border radius */
+    border: none;
+    background-color: var(--Moderate-cyan);
+    color: white; 
+    margin-bottom: 5em;
+}
+
+/* END OF FIRST CONTAINER */
+
+/* Inside Amounts Overview */
+
+.amounts-overview { 
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  background-color: bisque;
+  margin: 0px 25px 25px;
+  padding: 25px;
+
+
+}
+
+.bookmark { 
+    position: relative;
+    top: 25px; 
+    margin: .25em;
+}
+
+.amount-backed { 
+    font-size: var(--font-size-large);
+    
+}
+
+.amount-form { 
+    color: var(--dark-gray); 
+    font-size: var(--font-size-small); 
+    font-weight: var(--weight-light);
+    padding-bottom: 1em;
+
+}
+
+.line { 
+  width: 75px;
+  height: 1px;
+  background-color: var(--dark-gray);
+  margin-bottom: 1em;
+}
+
+/* END OF AMOUNTS OVERIVEW  */
+
+/* START OF ABOUT INFO  */
+
+.about-info { 
+  display: flex; 
+  flex-direction: column;
+  background-color: bisque;
+  margin: 0px 25px 25px;
+  padding: 25px;
+
+}
+
+.info-para{ 
+  padding-top: 1em;
+  font-size: var(--font-size-normal);
+  align-self: flex-start;
+  color: var(--dark-gray);
+
+}
+
+/* END OF ABOUT INFO */
+
+.item-containers { 
+  display: flex; 
+  flex-direction: column;
+  align-items: start;
+  align-content: start; 
+  border: .5px var(--dark-gray) solid;
+  border-radius: 2%;
+  margin: 1em; 
+  padding: 1em;
+}
+
+.item-pledge { 
+  color: var(--Moderate-cyan);
+  font-size: var(--font-size-medium);
+}
+
+.item-para { 
+  color: var(--dark-gray);
+}
+
+.item-left { 
+margin: 2em;
+  font-size: var(--font-size-small);
+  color: var(--dark-gray);
+}
+
+.number { 
+  position: relative;
+  top: 5px; 
+  padding: 2px;
+  font-size: var(--font-size-large);
+  color: var(--black);
+  
+}
+
+.reward-btn { 
+
+  padding: 1em;
+  width: 150px; 
+  /* Figure out border radius */
+  border: none;
+  background-color: var(--Moderate-cyan);
+  color: white; 
+  margin-bottom: 5em;
+
+}
+
+/* End of about-info */
+
+.model-container { 
+
+  background-color: white;
+
+
+}
+
+
