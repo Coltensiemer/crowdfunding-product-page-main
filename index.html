@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 <link rel="stylesheet" href="index.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <script src="./scripts/index.js" defer></script> 
   <title>Frontend Mentor | Crowdfunding product page</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -50,8 +50,12 @@
   <h2 class="amount-backed">5,007 </h2> 
   <h2 class="amount-form"> total backers</h2>
   <div class="line"></div>
-  <h2><span class="amount">56</span> days left</h2>
-
+  <h2 class="amount-backed">56</h2> 
+   <h2 class="amount-form"> days left</h2>
+   <div class="progess-container">
+    <div class="progession"></div>
+   </div>
+</section>
 
 <section class="about-info"> 
   <h3>About this project</h3>
@@ -62,9 +66,9 @@
 
   Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer 
   to allow notepads, pens, and USB sticks to be stored under the stand.</p>
-</section>
+
   
-  <div class="item-1 item-container">
+  <div class="item-1 item-containers">
     <h1 class="item-title">Bamboo Stand</h1>
     <h2 class="item-pledge">Pledge $25 or more</h2>
     <p class="item-para"> You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and 
@@ -72,7 +76,7 @@
   <h1 class="item-left"><span class="number">101</span> left</h1>
   <button class="reward-btn">Select Reward</button>
   </div>
-  <div class="item-2 item-container">
+  <div class="item-2 item-containers">
     <h1 class="item-title">Black Edition Stand</h1>
     <h2 class="item-pledge">Pledge $75 or more</h2>
     <p class="item-para"> You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer 
@@ -81,7 +85,7 @@
   <button class="reward-btn">Select Reward</button>
   </div>
 
-  <div class="item-3 item-container">
+  <div class="item-3 item-containers">
   <h1 class="item-title"> Mahogany Special Edition</h1>
   <h2 class="item-pledge">Pledge $200 or more</h2>
   <p class="item-para">You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added 
@@ -102,28 +106,34 @@
 
 
   <!-- Selection modal start -->
-  <selection class="model-container">
-  Back this project
-  Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
+  <selection id="model-container">
+  <h3> Back this project </h3>
+  <p class="info-para"> Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
 
-  Pledge with no reward
-  Choose to support us without a reward if you simply believe in our project. As a backer, 
-  you will be signed up to receive product updates via email.
+    <div class="item-1 item-containers">
+  <h3> Pledge with no reward </h3>
+  <p class="info-para"> Choose to support us without a reward if you simply believe in our project. As a backer, 
+  you will be signed up to receive product updates via email.</p>
+    </div> 
 
-  <div class="item-3 item-container">
+  <div class="item-1 item-containers">
     <h1 class="item-title">Bamboo Stand</h1>
     <h2 class="item-pledge">Pledge $25 or more</h2>
     <p class="item-para"> You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and 
       you’ll be added to a special Backer member list.</p>
       <h1 class="item-left"><span class="number">101</span> left</h1>
-  </div>
+ 
 
   <!-- Selected pledge start -->
+  <div class="pledge">
   <input> Enter your pledge</input> 
   <h1 class="cost-pledge"> <span class="dollar" >$25 </span></h1>
-  <button class="contonine-btn">Continue</button>
+  <button class="reward-btn">Continue</button>
+  </div>
   <!-- Selected pledge end -->
+</div>
 
+<div class="item-2 item-containers">
   <h1 class="item-title">Black Edition Stand</h1>
   <h2 class="item-pledge">Pledge $75 or more</h2>
   <p class="item-para"> You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
@@ -131,11 +141,15 @@
   <h1 class="item-left"><span class="number">64</span> left</h1>
 
   <!-- Selected pledge start -->
+  <div class="pledge">
   <input> Enter your pledge </input> 
   <h1 class="cost-pledge"> <span class="dollar" >$</span>75</h1>
-  <button class="contonine-btn"> Continue </button>
+  <button class="reward-btn"> Continue </button>
+  </div>
   <!-- Selected pledge end -->
+</div>
 
+<div class="item-3 item-containers">
   <h1 class="item-title">Mahogany Special Edition</h1>
   <h2 class="item-pledge">Pledge $200 or more</h2>
   <p class="item-para">  You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
@@ -143,13 +157,16 @@
   <h1 class="item-left"><span class="number">0</span> left</h1>
 
   <!-- Selected pledge  start -->
+  <div class="pledge">
   <input>Enter your pledge</input>
   <h1 class="cost-pledge"> <span class="dollar" >$</span>200</h1>
-  <button class="contonine-btn">  Continue </button>
+  <button class="reward-btn">  Continue </button>
+  </div>
   <!-- Selected pledge end -->
-  </selection>
+</div> 
   <!-- Selection modal end -->
 
+  </selection>
 
   <!-- Success modal start -->
 

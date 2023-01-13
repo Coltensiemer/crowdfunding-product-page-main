@@ -19,7 +19,7 @@ The designs were created to the following widths:
 - Black: hsl(0, 0%, 0%)
 - Dark gray: hsl(0, 0%, 48%)
 
-## Typography
+## Typographyd
 
 ### Body Copy
 

@@ -3,6 +3,8 @@
 .attribution a { color: hsl(228, 45%, 44%); }
 </style> */
 
+
+
 :root {
 
     /* Media widths */
@@ -15,6 +17,7 @@
     --Dark-cyan: hsl(176, 72%, 28%); 
     --black:  hsl(0, 0%, 0%); 
     --dark-gray: hsl(0, 0%, 48%); 
+    --whitish: rgba(247, 247, 247, 0.986); 
 
 
     /* FONT SIZES  */
@@ -27,6 +30,11 @@
     --weight-light: 400; 
     --weight-medium: 500; 
     --weight-heavy: 700; 
+
+
+    /* Radius */
+    --button-radius: 2em; 
+    --container-radius: 2px; 
 }
 
 
@@ -34,10 +42,13 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "commissioner";  
+  
 }
 
 body {
   margin: 0;
+  background-color: var(--whitish);
 
 }
 
@@ -45,13 +56,16 @@ main {
  margin: 0;
 }
 
+button { 
+  cursor: pointer;
+}
 
 
 /* HEADER START  */
 header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 175px;
+  margin-bottom: 150px;
 }
 
 .title {
@@ -60,6 +74,7 @@ header {
 }
 
 .hamburger { 
+   padding-top: 20px; 
     padding-right: 20px;
 }
 
@@ -86,20 +101,22 @@ ul {
   flex-direction: column;
     justify-content: center;
     align-items: center;
-   background-color: bisque;
-   margin: 0px 25px 25px;
-   padding: 25px;
+background-color: white;
+   margin: 25px 25px 50px;
+   border-radius: 2%;
+   /* border: var(--dark-gray) .25px transparent; */
+   /* outline: var(--dark-gray) .001em solid; */
+  
  
 }
 
-
-
 .logo { 
     position: relative;
-    top: -50px; 
+    top: -25px; 
 }
 
 h1, h2, p { 
+  display: block;
     text-align: center;
     padding: .25em; 
 }
@@ -114,9 +131,15 @@ h1, h2, p {
     width: 150px; 
     /* Figure out border radius */
     border: none;
+    border-radius: 2em;
     background-color: var(--Moderate-cyan);
     color: white; 
     margin-bottom: 5em;
+}
+.bookmark { 
+  position: relative;
+  top: 25px; 
+  margin: .25em;
 }
 
 /* END OF FIRST CONTAINER */
@@ -127,18 +150,15 @@ h1, h2, p {
   display: flex;
   flex-direction: column; 
   align-items: center;
-  background-color: bisque;
+  background-color: white;
   margin: 0px 25px 25px;
   padding: 25px;
+  border-radius: var(--container-radius);
+  gap: 1em; 
 
 
 }
 
-.bookmark { 
-    position: relative;
-    top: 25px; 
-    margin: .25em;
-}
 
 .amount-backed { 
     font-size: var(--font-size-large);
@@ -160,6 +180,23 @@ h1, h2, p {
   margin-bottom: 1em;
 }
 
+.progess-container { 
+width: 300px; 
+height: 10px;
+background-color: var(--whitish);
+
+border-radius: 50px;
+}
+
+.progession { 
+  width: 89.914%;
+  height: 10px;
+  background-color: var(--Moderate-cyan);
+  border-radius: var(--button-radius); 
+}
+
+
+
 /* END OF AMOUNTS OVERIVEW  */
 
 /* START OF ABOUT INFO  */
@@ -167,14 +204,16 @@ h1, h2, p {
 .about-info { 
   display: flex; 
   flex-direction: column;
-  background-color: bisque;
+  background-color: white; 
   margin: 0px 25px 25px;
   padding: 25px;
 
 }
 
 .info-para{ 
+  text-align: left;
   padding-top: 1em;
+  font-weight: 400;
   font-size: var(--font-size-normal);
   align-self: flex-start;
   color: var(--dark-gray);
@@ -191,25 +230,31 @@ h1, h2, p {
   border: .5px var(--dark-gray) solid;
   border-radius: 2%;
   margin: 1em; 
-  padding: 1em;
+  padding: 2em;
 }
+
+
 
 .item-pledge { 
   color: var(--Moderate-cyan);
   font-size: var(--font-size-medium);
+  padding-bottom: 1.5em;
 }
 
 .item-para { 
   color: var(--dark-gray);
+  text-align: left;
 }
 
 .item-left { 
-margin: 2em;
+  
+  margin: 2em;
   font-size: var(--font-size-small);
   color: var(--dark-gray);
 }
 
 .number { 
+ 
   position: relative;
   top: 5px; 
   padding: 2px;
@@ -227,15 +272,23 @@ margin: 2em;
   background-color: var(--Moderate-cyan);
   color: white; 
   margin-bottom: 5em;
+  border-radius: var(--button-radius);
 
 }
 
 /* End of about-info */
 
-.model-container { 
+#model-container { 
 
-  background-color: white;
-
+  position: absolute; 
+  top: 20%;
+  display: flex; 
+  flex-direction: column;
+  background-color: green; 
+  margin: 0px 25px 25px;
+  padding: 25px;
+  border: red 1px solid;
+  display: none;
 
 }
 
