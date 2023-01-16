@@ -13,10 +13,11 @@ const modelContainer = document.getElementById("model-container");
 backThisProjectBtn.addEventListener('click', (e) => { 
     e.preventDefault(); 
 
-if(modelContainer.style.display === 'none'){
-    modelContainer.style.display="block";
-console.log('hello')
- }
+    console.log("hello")
+// if(modelContainer.style.display === 'none'){
+//     modelContainer.style.display= block;
+// console.log('hello')
+//  }
 
 
 })

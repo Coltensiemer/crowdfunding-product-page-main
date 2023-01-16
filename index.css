@@ -4,6 +4,7 @@
 </style> */
 
 
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500&family=Press+Start+2P&family=Rubik+80s+Fade&display=swap');
 
 :root {
 
@@ -279,17 +280,51 @@ border-radius: 50px;
 /* End of about-info */
 
 #model-container { 
-
-  position: absolute; 
+  
   top: 20%;
   display: flex; 
   flex-direction: column;
-  background-color: green; 
+  background-color: white; 
   margin: 0px 25px 25px;
   padding: 25px;
-  border: red 1px solid;
-  display: none;
+  border-radius: var(--container-radius); 
+ 
 
 }
 
+.title-close-container { 
+  display: flex;
+  justify-content: space-between;
+}
 
+.close-btn { 
+  position: relative;
+  top:2px; 
+}
+
+.plege-select { 
+  display: grid; 
+ grid-template-columns: [first] 10% [second] 100%;
+ grid-template-rows: [row-start] 30% [row-end] auto;
+  
+}
+
+
+
+.selected-radio { 
+grid-column-start: first;
+grid-column-end: first;
+
+  
+}
+
+.grid-title { 
+   grid-column-start: second;
+  
+  
+}
+
+.grid-pledge { 
+  grid-column-start: second;
+  
+} 
