@@ -4,10 +4,12 @@ const disable = true;
 const backThisProjectBtn = document.querySelector(".backtoproj");
 const selectPledge = document.querySelectorAll('input[name="radio"]');
 const selectReward = document.querySelectorAll(".reward-btn");
+const selectRadio = document.querySelectorAll(".selected-radio"); // radio buttons 
 const closeBTN = document.querySelector(".close-btn");
 
 // DISPLAYS
 const modelContainer = document.getElementById("model-container"); // Model Container
+const pledgeContainer = document.querySelectorAll(".pledge"); // Pledge containers 
 
 //HTML DISPLAY CLASSES
 const valueBackedhtml = document.querySelector("amount-backed");
@@ -76,8 +78,16 @@ function stockInventory() {
     }
   }
  )
+// for model products if zero 
+ productLeft.forEach(e => { 
+  if (parseInt(e.textContent) === 0) { 
+    e.closest(".item-containers").style.opacity = 0.4;
+    e.parentElement.nextElementSibling.textContent="Out of Stock" 
+    e.parentElement.nextElementSibling.disabled=true;  
+  }
 }
-
+)
+}
 stockInventory();
 
 //OPEN MODEL SECTION  DISPLAY
@@ -97,3 +107,19 @@ closeBTN.addEventListener("click", (e) => {
   e.preventDefault();
   modelContainer.close();
 });
+
+
+//Open Radios
+selectRadio.forEach(e => { 
+  e.addEventListener('click',() => { 
+    if(e.checked) { 
+      e.parentElement.parentElement.lastElementChild.classList.remove("visible")
+    }
+
+    else { 
+      console.log('not work')
+    }
+
+})
+} 
+); 

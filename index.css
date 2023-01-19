@@ -87,9 +87,8 @@ h1, h2, p {
 
 
 /* ADDITONAL CLASSES */
-.backdrop { 
-  background: rgba(0, 0, 0, 0.5);
-
+.visible { 
+  display: none;
 }
 
 /* HEADER START  */
@@ -382,7 +381,7 @@ height: fit-content;
 }
 
 .plege-1, .plege-2, .plege-3 { 
-  display: none;
+ 
 }
 
 input[name="name"] { 
