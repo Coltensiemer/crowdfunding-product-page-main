@@ -53,17 +53,25 @@
 }
 
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
 
   
 
 }
 
 main {
- margin: 0;
+  margin: 0 auto;
  z-index: 2;
 
 }
+
+section{ 
+  margin: auto;
+padding: 0 0 25px; 
+max-width: 20em;
+}
+
 
 
 button { 
@@ -71,9 +79,17 @@ button {
 }
 
 
+h1, h2, p { 
+  display: block;
+    text-align: center;
+    padding: .25em; 
+}
+
+
 /* ADDITONAL CLASSES */
 .backdrop { 
-  filter: brightness(20%);
+  background: rgba(0, 0, 0, 0.5);
+
 }
 
 /* HEADER START  */
@@ -112,13 +128,11 @@ ul {
 
 /* Start of Main containers */
 .mastercraft-container {
-  
   display: flex;
   flex-direction: column;
     justify-content: center;
     align-items: center;
 background-color: white;
-   margin: 25px 25px 50px;
    border-radius: 2%;
    /* border: var(--dark-gray) .25px transparent; */
    /* outline: var(--dark-gray) .001em solid; */
@@ -131,11 +145,6 @@ background-color: white;
     top: -25px; 
 }
 
-h1, h2, p { 
-  display: block;
-    text-align: center;
-    padding: .25em; 
-}
 
 .para { 
     color: var(--dark-gray);
@@ -167,7 +176,6 @@ h1, h2, p {
   flex-direction: column; 
   align-items: center;
   background-color: white;
-  margin: 0px 25px 25px;
   padding: 25px;
   border-radius: var(--container-radius);
   gap: 1em; 
@@ -296,7 +304,6 @@ border-radius: 50px;
 /* End of about-info */
 
 dialog { 
-  position: fixed; 
 height: fit-content;
   border: none;
   max-height: calc(100vh - 100px); 
@@ -304,21 +311,18 @@ height: fit-content;
   scroll-behavior: smooth;
 }
 
-dialog::backdrop { 
-  position: fixed;
- background: red; 
+.back-dialog::backdrop {
+	background: rgba(0, 0, 0, 0.5);
 }
 
+
 #model-container { 
-  position: fixed; 
   top: 20%;
-  display: flex; 
-  flex-direction: column;
   background: white; 
   margin: 0px 25px 25px;
   padding: 25px;
   border-radius: var(--container-radius); 
-  display: none;
+  
 
 }
 

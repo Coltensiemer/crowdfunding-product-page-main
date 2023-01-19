@@ -1,30 +1,29 @@
-
-const disable = true; 
+const disable = true;
 
 // BUTTONS
-const backThisProjectBtn = document.querySelector(".backtoproj"); 
+const backThisProjectBtn = document.querySelector(".backtoproj");
 const selectPledge = document.querySelectorAll('input[name="radio"]');
-const selectReward = document.querySelectorAll('.reward-btn'); 
+const selectReward = document.querySelectorAll(".reward-btn");
+const closeBTN = document.querySelector(".close-btn");
 
 // DISPLAYS
-const modelContainer = document.getElementById("model-container"); // Model Container 
+const modelContainer = document.getElementById("model-container"); // Model Container
 
+//HTML DISPLAY CLASSES
+const valueBackedhtml = document.querySelector("amount-backed");
+const title = document.querySelectorAll(".item-title"); //titles
+const pledge = document.querySelectorAll(".item-pledge"); // pledges min amounts
+const itemPara = document.querySelectorAll(".item-para"); // Paragraphs
+const itemLeft = document.querySelectorAll(".number"); // Items left
+const productTitle = document.querySelectorAll(".product-title");
+const productPledge = document.querySelectorAll(".product-pledge");
+const productPara = document.querySelectorAll(".pledge-para");
+const productLeft = document.querySelectorAll(".pledge-left");
 
-//HTML DISPLAY CLASSES 
-const valueBackedhtml = document.querySelector("amount-backed"); 
-const title= document.querySelectorAll(".item-title"); //titles
-const pledge = document.querySelectorAll(".item-pledge"); // pledges min amounts 
-const itemPara = document.querySelectorAll(".item-para"); // Paragraphs 
-const itemLeft = document.querySelectorAll(".number"); // Items left 
-const productTitle = document.querySelectorAll('.product-title'); 
-const productPledge = document.querySelectorAll('.product-pledge'); 
-const productPara = document.querySelectorAll('.pledge-para'); 
-const productLeft = document.querySelectorAll('.pledge-left'); 
-
-//Starting values 
-const valueBacked = 89914; 
-const totalBackers = 5007; 
-const daysleft = 56 
+//Starting values
+const valueBacked = 89914;
+const totalBackers = 5007;
+const daysleft = 56;
 
 // Item Products
 const products = [
@@ -55,40 +54,46 @@ const products = [
   },
 ];
 
-// Display of products 
-products.forEach((obj, index) => { 
-    title[index].textContent = obj.title
-    productTitle[index].textContent = obj.title
-    pledge[index].textContent = obj.pledge
-    productPledge[index].textContent = obj.pledge
-    itemPara[index].textContent = obj.paragraph
-    productPara[index].textContent = obj.paragraph
-    itemLeft[index].textContent = obj.left
-    productLeft[index].textContent = obj.left
-}) 
-
-// IF Items left are zero
-function stockInventory() { 
-   itemLeft.forEach((event) => { 
-        if (parseInt(event === 0)) { 
-            event.parentElement.nextElementSibling.textContent ="Out"
-        } 
-        else { 
-            console.log('no works')
-        }
-    })
-}
-
-
-
-
-
-//Open modal selection
-backThisProjectBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  modelContainer.style.display = "block";
+// Display of products
+products.forEach((obj, index) => {
+  title[index].textContent = obj.title;
+  productTitle[index].textContent = obj.title;
+  pledge[index].textContent = obj.pledge;
+  productPledge[index].textContent = obj.pledge;
+  itemPara[index].textContent = obj.paragraph;
+  productPara[index].textContent = obj.paragraph;
+  itemLeft[index].textContent = obj.left;
+  productLeft[index].textContent = obj.left;
 });
 
-// selectPledge.addEventListener("click", (e) => {
-//   e.preventDefault();
-// });
+// IF Items left are zero
+function stockInventory() {
+  itemLeft.forEach(e => {
+    if (parseInt(e.textContent) === 0) { 
+      e.closest(".item-containers").style.opacity = 0.4;
+      e.parentElement.nextElementSibling.textContent="Out of Stock" 
+      e.parentElement.nextElementSibling.disabled=true;  
+    }
+  }
+ )
+}
+
+stockInventory();
+
+//OPEN MODEL SECTION  DISPLAY
+backThisProjectBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  modelContainer.showModal();
+});
+
+selectReward.forEach((select) => {
+  select.addEventListener("click", () => {
+    modelContainer.showModal();
+  });
+});
+
+//CLOSE MODEL SECLTION DISPLAY
+closeBTN.addEventListener("click", (e) => {
+  e.preventDefault();
+  modelContainer.close();
+});
