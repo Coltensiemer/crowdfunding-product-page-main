@@ -38,6 +38,10 @@
     --container-radius: 2px; 
 }
 
+::backdrop { 
+  --backdrop: rgba(0, 0, 0, 1) !important;
+}
+
 
 /* GLOBAL */
 * {
@@ -45,22 +49,32 @@
   padding: 0;
   font-family: "commissioner";  
   
+  
 }
 
 body {
   margin: 0;
-  background-color: var(--whitish);
+
+  
 
 }
 
 main {
  margin: 0;
+ z-index: 2;
+
 }
+
 
 button { 
   cursor: pointer;
 }
 
+
+/* ADDITONAL CLASSES */
+.backdrop { 
+  filter: brightness(20%);
+}
 
 /* HEADER START  */
 header {
@@ -98,6 +112,7 @@ ul {
 
 /* Start of Main containers */
 .mastercraft-container {
+  
   display: flex;
   flex-direction: column;
     justify-content: center;
@@ -233,7 +248,8 @@ border-radius: 50px;
   border-radius: 2%;
   margin: 1em; 
   padding: 2em;
-  backdrop-filter:blur(2px);
+
+  
 }
 
 
@@ -279,18 +295,33 @@ border-radius: 50px;
 
 /* End of about-info */
 
+dialog { 
+  position: fixed; 
+height: fit-content;
+  border: none;
+  max-height: calc(100vh - 100px); 
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+dialog::backdrop { 
+  position: fixed;
+ background: red; 
+}
+
 #model-container { 
-  position: absolute;
+  position: fixed; 
   top: 20%;
   display: flex; 
   flex-direction: column;
-  background-color: white; 
+  background: white; 
   margin: 0px 25px 25px;
   padding: 25px;
   border-radius: var(--container-radius); 
   display: none;
 
 }
+
 
 .title-close-container { 
   display: flex;
