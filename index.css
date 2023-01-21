@@ -309,7 +309,8 @@ border-radius: 50px;
 dialog { 
 height: fit-content;
   border: none;
-  max-height: calc(100vh - 100px); 
+  max-height: calc(100vh - 200px);  
+  padding-bottom: 8em;
   overflow-y: auto;
   scroll-behavior: smooth;
 }
@@ -405,26 +406,24 @@ label[for="name"] {
 
 .cost-container { 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between; 
   text-align: center;
   padding-top: 2em;
 }
 
-.cost-pledge { 
-  padding: 1.5em 2.5em;
-  margin-right: 1em; 
+input[name="costpledge"] { 
   text-align: center;
+  border: var(--dark-gray) 1px solid;
   border-radius: var(--button-radius);
-  border: var(--dark-gray) .25px solid;
-  max-height: 1em;
+  max-width: 125px;
+  height: 50px;
+
 
 }
 
-.dollar { 
-  position: relative;
-  left: -10px;
-  color: var(--dark-gray);
-  font-weight: 400;
+input[name=costpledge]::placeholder { 
+  color: black; 
+  font-weight: var(--weight-heavy);
 }
 
 
