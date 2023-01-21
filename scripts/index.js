@@ -113,13 +113,15 @@ closeBTN.addEventListener("click", (e) => {
 selectRadio.forEach(e => { 
   e.addEventListener('click',() => { 
     if(e.checked) { 
-      e.parentElement.parentElement.lastElementChild.classList.remove("visible")
+      e.parentElement.parentElement.lastElementChild.classList.remove("visible"); 
+      e.parentElement.parentNode.classList.add('borderActive');
     }
 
     else { 
-      console.log('not work')
+      e.parentElement.parentNode.classList.remove('borderActive');
     }
+      
+    }) 
 
 })
-} 
-); 
+  

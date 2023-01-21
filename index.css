@@ -88,7 +88,11 @@ h1, h2, p {
 
 /* ADDITONAL CLASSES */
 .visible { 
-  display: none;
+  display: none !important;
+}
+
+.borderActive { 
+  border: 2px var(--Moderate-cyan) solid !important;
 }
 
 /* HEADER START  */
