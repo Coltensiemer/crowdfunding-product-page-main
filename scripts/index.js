@@ -137,19 +137,17 @@ selectRadio.forEach(e => {
       e.parentElement.parentElement.lastElementChild.classList.remove("visible"); 
       e.parentElement.parentNode.classList.add('borderActive');
     }
-
-    
-      
     }) 
 
 })
   
 
-//MODEL INPUT PlaceHOLDER 
-products.forEach((obj, index) => { 
-  inputPledgeValue[index].placeholder = obj.min; 
-  inputPledgeValue[index].setAttribute('min', obj.min); 
-})
+// MODEL INPUT PlaceHOLDER 
+// products.forEach((obj, index) => { 
+//   inputPledgeValue[index].placeholder = obj.min; 
+//   // inputPledgeValue[index].setAttribute('min', obj.min); 
+// }
+// ); 
 
 
 
@@ -158,11 +156,18 @@ products.forEach((obj, index) => {
 
 continuePledge.forEach(e => { 
   e.addEventListener( "click", () => { 
-    const inputValue = e.closest("cost-pledge"); 
-    const inputMin = inputValue.value; 
-    
-    console.log(inputMin); 
 
+    const inputElement = e.previousSibling
+    const inputMin = parseInt(inputElement.min);  
+    const delclaredPrice = parseInt(inputElement.value); 
+   
+    if (delclaredPrice >= inputMin) { 
+      console.log('works')
+    }
+    else { 
+      console.log(delclaredPrice)
+      console.log(inputElement)
+    }
 
   }
     //take value in input field 

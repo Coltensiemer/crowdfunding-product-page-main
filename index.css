@@ -385,9 +385,7 @@ height: fit-content;
   flex-direction: column;
 }
 
-.plege-1, .plege-2, .plege-3 { 
- 
-}
+
 
 input[name="name"] { 
   position:relative; 
