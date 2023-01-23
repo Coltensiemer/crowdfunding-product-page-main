@@ -102,6 +102,8 @@ function stockInventory() {
 }
 stockInventory();
 
+
+
 //OPEN MODEL SECTION  DISPLAY
 backThisProjectBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -124,16 +126,20 @@ closeBTN.addEventListener("click", (e) => {
 //Open Radios
 selectRadio.forEach(e => { 
   e.addEventListener('click',() => { 
+
       document.querySelectorAll('.item-containers').forEach(e => { 
         e.classList.remove('borderActive'); 
+    
       })
 
       pledgeContainer.forEach(e => { 
         e.classList.add("visible")
+       
       })
 
 
-    if(e.checked) { 
+
+    if(e.checked) {
       e.parentElement.parentElement.lastElementChild.classList.remove("visible"); 
       e.parentElement.parentNode.classList.add('borderActive');
     }
@@ -142,7 +148,7 @@ selectRadio.forEach(e => {
 })
   
 
-// MODEL INPUT PlaceHOLDER 
+// // MODEL INPUT PlaceHOLDER 
 // products.forEach((obj, index) => { 
 //   inputPledgeValue[index].placeholder = obj.min; 
 //   // inputPledgeValue[index].setAttribute('min', obj.min); 
@@ -150,6 +156,24 @@ selectRadio.forEach(e => {
 // ); 
 
 
+// Display of value added 
+
+function displayValue(e) { 
+  let stringNumbers = e.toString() 
+  let lastthree = stringNumbers.length - 3 
+  let currectBackers = stringBackers.slice(0, lastThreeString) + "," + stringBackers.slice(lastThreeString) 
+
+  return (totalBackershtml.textContent = currectBackers); 
+}
+
+//Display of backers amount backed
+function displayBacker(e) { 
+  let stringBackers = e.toString()
+  let lastThreeString = totalBackers.length - 1; 
+  let currectBackers = stringBackers.slice(0, lastThreeString) + "," + stringBackers.slice(lastThreeString) 
+
+  return (totalBackershtml.textContent = currectBackers); 
+}
 
 
 // add input to AMOUNT BACKed 
@@ -157,16 +181,22 @@ selectRadio.forEach(e => {
 continuePledge.forEach(e => { 
   e.addEventListener( "click", () => { 
 
-    const inputElement = e.previousSibling
-    const inputMin = parseInt(inputElement.min);  
-    const delclaredPrice = parseInt(inputElement.value); 
+    const inputElement = e.previousElementSibling.lastElementChild; 
+    const inputMin = +inputElement.min
+    let delclaredPrice = inputElement.value
    
     if (delclaredPrice >= inputMin) { 
-      console.log('works')
+      valueBacked += +delclaredPrice; 
+     totalBackers += 1; 
+  
+    
+     displayBacker(totalBackers); 
+
+      console.log(valueBacked)
+      console.log(totalBackers)
     }
     else { 
-      console.log(delclaredPrice)
-      console.log(inputElement)
+      console.log(inputElement.min)
     }
 
   }

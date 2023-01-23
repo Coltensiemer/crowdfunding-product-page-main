@@ -218,6 +218,7 @@ border-radius: 50px;
 
 .progession { 
   width: 89.914%;
+  max-width: 100%;
   height: 10px;
   background-color: var(--Moderate-cyan);
   border-radius: var(--button-radius); 
@@ -293,6 +294,7 @@ border-radius: 50px;
   
 }
 
+.pledge-reward-btn, 
 .reward-btn { 
 
   padding: 1em;
@@ -306,6 +308,8 @@ border-radius: 50px;
 
 /* End of about-info */
 
+
+/* Start of dialogs */
 dialog { 
 height: fit-content;
   border: none;
@@ -375,47 +379,74 @@ height: fit-content;
   
 } 
 
+
+
 /* Pldge INPUT section */
 
 .pledge { 
 
   width: 100%;
   height: auto;
-  display: flex;
+  overflow: visible; 
+  display: flex; 
   flex-direction: column;
+
+
+
+}
+
+/* Middle Line in dialog */
+.line-pledge { 
+  width: 60px;
+  height: 20px;
+  color: var(--dark-gray); 
+ 
 }
 
 
 
-input[name="name"] { 
-  position:relative; 
-  left: -30px;
-  width: 125%;
-  background: white; 
-  border: var(--dark-gray) .25px solid; 
-}
 
-label[for="name"] { 
-  text-align: center;
-  color: var(--dark-gray);
-  font-size: var(--font-size-medium);
-  padding: 5px;
+.pledge-lable { 
+  border-top: 1px solid var(--dark-gray);
+  color: var(--dark-gray); 
+  font-weight: var(--weight-medium);
+  width: 100%;
+  padding: 1em;
+margin: auto;
+position: relative;
+left: -30px;
+text-align: center;
+
+} 
+
+.input-btn-container { 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .cost-container { 
+ align-content: center;
   display: flex;
-  justify-content: space-between; 
+  justify-content: center;
   text-align: center;
-  padding-top: 2em;
-}
+  align-items: center;
+  border: var(--dark-gray) 1px solid;
+  border-radius: var(--button-radius);
+  margin: auto;
+  width: 120px;
+  height: 60px;
+
+} 
+
 
 input[name="costpledge"] { 
   text-align: center;
-  border: var(--dark-gray) 1px solid;
-  border-radius: var(--button-radius);
-  max-width: 125px;
-  height: 50px;
-
+  max-width: 50px;
+  height: 25px;
+  border: .25px white solid;
+  appearance: none;
+  outline: none;
 
 }
 
@@ -424,4 +455,16 @@ input[name=costpledge]::placeholder {
   font-weight: var(--weight-heavy);
 }
 
+label[for="costpledge"] { 
+  font-weight: var(--weight-light); 
+  color: var(--dark-gray); 
+}
+
+
+.pledge-reward-btn { 
+  padding: .5em;
+  height: 60px;
+  
+ 
+}
 
