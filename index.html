@@ -136,16 +136,21 @@
     <p class="item-para pledge-para"> </p>
    <h1 class="item-left"><span class="number pledge-left"></span> left</h1>
  
-
+  
   <!-- Selected pledge start -->
-  <div class="pledge plege-1 visible">
 
-  <label>  Enter your pledge </label>
+  <div class="pledge plege-1 visible">
+    <div class="line-pledge"></div>
+
+  <label class="pledge-lable">  Enter your pledge </label>
+  <div class="input-btn-container">
   <div class="cost-container"> 
   <label for="costpledge" class="pledgedollar"> $ </label>
-  <input id="cost=pledge" class="'cost-pledge" name="costpledge"  min="20"> 
+  <input id="cost-pledge" class="'cost-pledge" name="costpledge"  min="20"> 
+</div>
   <button class="pledge-reward-btn">Continue</button>
   </div>
+  
   </div>
   <!-- Selected pledge end -->
 </div>
@@ -160,15 +165,20 @@
   <p class="item-para pledge-para"> </p>
   <h1 class="item-left"><span class="number pledge-left"></span> left</h1>
 
+ 
   <!-- Selected pledge start -->
   <div class="pledge plege-2 visible">
+    <div class="line-pledge"></div>
 
-    <label for="name">  Enter your pledge </label>
+    <label class="pledge-lable"> Enter your pledge </label>
+    <div class="input-btn-container">
     <div class="cost-container"> 
       <label for="costpledge" class="pledgedollar"> $ </label>
-      <input id="cost=pledge" class="'cost-pledge" name="costpledge" min="20"> 
+      <input id="cost-pledge" class="'cost-pledge" name="costpledge" min="20"> 
+    </div>
   <button class="pledge-reward-btn"> Continue </button>
     </div>
+   
   </div>
   <!-- Selected pledge end -->
 </div>
@@ -182,16 +192,22 @@
 </div>
   <p class="item-para pledge-para">  </p>
   <h1 class="item-left "><span class="number pledge-left"></span> left</h1>
-
+  <div class="line=pledge" ></div>
   <!-- Selected pledge  start -->
-  <div class="pledge plege-3 visible">
 
-    <label>  Enter your pledge </label>
+  <div class="pledge plege-3 visible">
+    <div class="line"></div>
+
+    <label class="pledge-lable">  Enter your pledge </label>
+
+    <div class="input-btn-container">
     <div class="cost-container"> 
       <label for="costpledge" class="pledgedollar"> $ </label>
-      <input id="cost=pledge" class="'cost-pledge" name="costpledge" min="20"> 
+      <input id="cost-pledge" class="'cost-pledge" name="costpledge" min="20"> 
+    </div>
   <button class="pledge-reward-btn">  Continue </button>
     </div>
+
   </div>
   <!-- Selected pledge end -->
 </div> 
@@ -201,11 +217,12 @@
 
   <!-- Success modal start -->
 
-<dialog>
-  <p> for your support!
-  Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
-  an email once our campaign is completed.
-  Got it!</p>
+<dialog class="endingModel">
+  <svg class="endingsvg" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#3CB3AB" cx="32" cy="32" r="32"/><path stroke="#FFF" stroke-width="5" d="M20 31.86L28.093 40 44 24"/></g></svg>
+  <h3 class="endingTitle"> Thanks for your support!</h3>
+  <p class="endingPara">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+  an email once our campaign is completed.</p>
+<button class="endingbutton">  Got it! </button>
 </dialog> 
   </main>
   <!-- Success modal end -->

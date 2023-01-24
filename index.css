@@ -464,7 +464,59 @@ label[for="costpledge"] {
 .pledge-reward-btn { 
   padding: .5em;
   height: 60px;
-  
  
 }
 
+/* ENDING DIALOG */
+.endingModel { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: visible !important; 
+border: red solid 2px; 
+  top: 40%;
+  width: 200px; 
+  height: 125px;  
+  background: white; 
+  margin: auto;   
+  padding: 70px;
+  
+
+
+}
+
+.endingModel::backdrop { 
+  background: rgba(0, 0, 0, 0.5);;
+}
+
+.endingsvg { 
+  align-self: center;
+  margin: auto;
+  overflow: visible;
+  
+}
+
+.endingTitle { 
+  text-align: center;
+  text-overflow: none; 
+  font-size: var(--font-size-medium);
+  padding: .5em;
+}
+
+.endingPara { 
+  font-size: var(--font-size-small);
+  color: var(--dark-gray); 
+  text-align: center;
+
+}
+
+.endingbutton {
+  align-self: center; 
+  margin-top: 20px;
+  border-radius: var(--button-radius);
+  color: white;
+  background-color: var(--Moderate-cyan);
+  padding: .5em; 
+  font-size: var(--font-size-small);
+  width: 60px;
+}

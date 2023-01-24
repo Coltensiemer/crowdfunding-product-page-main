@@ -3,19 +3,21 @@ const disable = true;
 // BUTTONS
 const backThisProjectBtn = document.querySelector(".backtoproj");
 const selectPledge = document.querySelectorAll('input[name="radio"]');
-const selectReward = document.querySelectorAll(".reward-btn"); 
-const continuePledge = document.querySelectorAll('.pledge-reward-btn'); // continue button in select reward
-const selectRadio = document.querySelectorAll(".selected-radio"); // radio buttons 
+const selectReward = document.querySelectorAll(".reward-btn");
+const continuePledge = document.querySelectorAll(".pledge-reward-btn"); // continue button in select reward
+const selectRadio = document.querySelectorAll(".selected-radio"); // radio buttons
 const closeBTN = document.querySelector(".close-btn");
-const inputPledgeValue= document.getElementsByName("costpledge"); // placeholder values for input 
+const inputPledgeValue = document.getElementsByName("costpledge"); // placeholder values for input
 
 // DISPLAYS
 const modelContainer = document.getElementById("model-container"); // Model Container
-const pledgeContainer = document.querySelectorAll(".pledge"); // Pledge containers 
+const pledgeContainer = document.querySelectorAll(".pledge"); // Pledge containers
+const progressionBar = document.querySelector(".progession");
+const endingModel = document.querySelector(".endingModel"); 
 
 //HTML DISPLAY CLASSES
 const valueBackedhtml = document.querySelector(".amount-backed");
-const totalBackershtml = document.querySelector(".total-backed"); 
+const totalBackershtml = document.querySelector(".total-backed");
 const title = document.querySelectorAll(".item-title"); //titles
 const pledge = document.querySelectorAll(".item-pledge"); // pledges min amounts
 const itemPara = document.querySelectorAll(".item-para"); // Paragraphs
@@ -24,8 +26,6 @@ const productTitle = document.querySelectorAll(".product-title");
 const productPledge = document.querySelectorAll(".product-pledge");
 const productPara = document.querySelectorAll(".pledge-para");
 const productLeft = document.querySelectorAll(".pledge-left");
-
-
 
 //Starting values
 let valueBacked = 89914;
@@ -76,33 +76,24 @@ products.forEach((obj, index) => {
   productLeft[index].textContent = obj.left;
 });
 
-// Display of back and backers
-valueBackedhtml.textContent= valueBacked; 
-totalBackershtml.textContent=totalBackers; 
-
 // IF Items left are zero
 function stockInventory() {
-  itemLeft.forEach(e => {
-    if (parseInt(e.textContent) === 0) { 
+  itemLeft.forEach((e) => {
+    if (parseInt(e.textContent) === 0) {
       e.closest(".item-containers").style.opacity = 0.4;
-      e.parentElement.nextElementSibling.textContent="Out of Stock" 
-      e.parentElement.nextElementSibling.disabled=true;  
+      e.parentElement.nextElementSibling.textContent = "Out of Stock";
+      e.parentElement.nextElementSibling.disabled = true;
     }
-  }
- )
-// for model products if zero 
- productLeft.forEach(e => { 
-  if (parseInt(e.textContent) === 0) { 
-    e.closest(".item-containers").style.opacity = 0.4;
-    e.parentElement.nextElementSibling.textContent="Out of Stock";
-    // e.parentElement.parentElement.firstChild.style.color="red"; 
-
-}
-})
+  });
+  // for model products if zero
+  productLeft.forEach((e) => {
+    if (parseInt(e.textContent) === 0) {
+      e.closest(".item-containers").style.opacity = 0.4;
+      e.parentElement.nextElementSibling.textContent = "Out of Stock";
+    }
+  });
 }
 stockInventory();
-
-
 
 //OPEN MODEL SECTION  DISPLAY
 backThisProjectBtn.addEventListener("click", (e) => {
@@ -122,85 +113,107 @@ closeBTN.addEventListener("click", (e) => {
   modelContainer.close();
 });
 
-
 //Open Radios
-selectRadio.forEach(e => { 
-  e.addEventListener('click',() => { 
+selectRadio.forEach((e) => {
+  e.addEventListener("click", () => {
+    document.querySelectorAll(".item-containers").forEach((e) => {
+      e.classList.remove("borderActive");
+    });
 
-      document.querySelectorAll('.item-containers').forEach(e => { 
-        e.classList.remove('borderActive'); 
-    
-      })
+    pledgeContainer.forEach((e) => {
+      e.classList.add("visible");
+    });
 
-      pledgeContainer.forEach(e => { 
-        e.classList.add("visible")
-       
-      })
-
-
-
-    if(e.checked) {
-      e.parentElement.parentElement.lastElementChild.classList.remove("visible"); 
-      e.parentElement.parentNode.classList.add('borderActive');
+    if (e.checked) {
+      e.parentElement.parentElement.lastElementChild.classList.remove(
+        "visible"
+      );
+      e.parentElement.parentNode.classList.add("borderActive");
     }
-    }) 
-
-})
-  
-
-// // MODEL INPUT PlaceHOLDER 
-// products.forEach((obj, index) => { 
-//   inputPledgeValue[index].placeholder = obj.min; 
-//   // inputPledgeValue[index].setAttribute('min', obj.min); 
-// }
-// ); 
+  });
+});
 
 
-// Display of value added 
+function OpenEndingModel() { 
+  endingModel.showModal(); 
 
-function displayValue(e) { 
-  let stringNumbers = e.toString() 
-  let lastthree = stringNumbers.length - 3 
-  let currectBackers = stringBackers.slice(0, lastThreeString) + "," + stringBackers.slice(lastThreeString) 
-
-  return (totalBackershtml.textContent = currectBackers); 
 }
+
+// MODEL INPUT PlaceHOLDER
+products.forEach((obj, index) => {
+  inputPledgeValue[index].setAttribute("min", obj.min);
+});
+
+// Display of value added
+
+function displayValue(e) {
+  let stringNumbers = e.toString();
+  let lastthree = stringNumbers.length - 3;
+  let curentValue =
+    "$" +
+    stringNumbers.slice(0, lastthree) +
+    "," +
+    stringNumbers.slice(lastthree);
+
+  return (valueBackedhtml.textContent = curentValue);
+}
+displayValue(valueBacked); // show default
 
 //Display of backers amount backed
-function displayBacker(e) { 
-  let stringBackers = e.toString()
-  let lastThreeString = totalBackers.length - 1; 
-  let currectBackers = stringBackers.slice(0, lastThreeString) + "," + stringBackers.slice(lastThreeString) 
+function displayBacker(e) {
+  let stringNumbers = e.toString();
+  let lastthree = stringNumbers.length - 3;
+  let curentValue =
+    stringNumbers.slice(0, lastthree) + "," + stringNumbers.slice(lastthree);
 
-  return (totalBackershtml.textContent = currectBackers); 
+  return (totalBackershtml.textContent = curentValue);
+}
+displayBacker(totalBackers); //show default
+
+function updateProgressBar(e) {
+  let total = 100000;
+  let progressWidth = (e * 100) / total;
+  progressionBar.style.width = progressWidth + "%";
 }
 
+updateProgressBar(valueBacked);
 
-// add input to AMOUNT BACKed 
-
-continuePledge.forEach(e => { 
-  e.addEventListener( "click", () => { 
-
-    const inputElement = e.previousElementSibling.lastElementChild; 
-    const inputMin = +inputElement.min
-    let delclaredPrice = inputElement.value
-   
-    if (delclaredPrice >= inputMin) { 
-      valueBacked += +delclaredPrice; 
-     totalBackers += 1; 
-  
+continuePledge.forEach((e) => {
+  e.addEventListener(
+    "click",
+    () => {
+      const inputElement = e.previousElementSibling.lastElementChild;
+      const inputMin = +inputElement.min;
+      let delclaredPrice = inputElement.value;
+      
     
-     displayBacker(totalBackers); 
 
-      console.log(valueBacked)
-      console.log(totalBackers)
-    }
-    else { 
-      console.log(inputElement.min)
-    }
+      if (delclaredPrice >= inputMin) {
+        
+        valueBacked += +delclaredPrice;
+        totalBackers += 1;
 
-  }
-    //take value in input field 
-    //add to total backers 
-)}
-)
+        displayValue(valueBacked);
+        displayBacker(totalBackers);
+        updateProgressBar(valueBacked);
+
+        for (let i = 0; i < products.length; i++) {
+          if (e.dataset.id == products[i].id) {
+          products[i].left -= 1;
+          itemLeft[i].textContent = products[i].left;
+          productLeft[i].textContent = products[i].left;
+            console.log(itmeLeft)
+          stockInventory();
+          } 
+        }
+
+
+        
+      }
+
+      OpenEndingModel(e) 
+    }
+    //take value in input field
+    //add to total backers
+  );
+});
