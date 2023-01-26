@@ -8,6 +8,7 @@ const continuePledge = document.querySelectorAll(".pledge-reward-btn"); // conti
 const selectRadio = document.querySelectorAll(".selected-radio"); // radio buttons
 const closeBTN = document.querySelector(".close-btn");
 const inputPledgeValue = document.getElementsByName("costpledge"); // placeholder values for input
+const endingButton = document.querySelector(".endingbutton"); 
 
 // DISPLAYS
 const modelContainer = document.getElementById("model-container"); // Model Container
@@ -99,11 +100,13 @@ stockInventory();
 backThisProjectBtn.addEventListener("click", (e) => {
   e.preventDefault();
   modelContainer.showModal();
+  document.body.classList.add('overflow'); 
 });
 
 selectReward.forEach((select) => {
   select.addEventListener("click", () => {
     modelContainer.showModal();
+    document.body.classList.add('overflow'); 
   });
 });
 
@@ -111,6 +114,7 @@ selectReward.forEach((select) => {
 closeBTN.addEventListener("click", (e) => {
   e.preventDefault();
   modelContainer.close();
+  document.body.classList.remove('overflow'); 
 });
 
 //Open Radios
@@ -134,11 +138,21 @@ selectRadio.forEach((e) => {
 });
 
 
+// Open Ending Model 
 function OpenEndingModel() { 
+
   endingModel.showModal(); 
+  document.body.classList.add('overflow'); 
+  console.log('works opend ending')
 
 }
 
+// CLose ending model 
+endingButton.addEventListener('click', (e) => { 
+  e.preventDefault(); 
+endingModel.close();
+document.body.classList.remove('overflow'); 
+})
 // MODEL INPUT PlaceHOLDER
 products.forEach((obj, index) => {
   inputPledgeValue[index].setAttribute("min", obj.min);
@@ -206,14 +220,12 @@ continuePledge.forEach((e) => {
           stockInventory();
           } 
         }
-
-
+        OpenEndingModel(); 
+       
         
       }
+  
 
-      OpenEndingModel(e) 
     }
-    //take value in input field
-    //add to total backers
   );
 });
