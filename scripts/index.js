@@ -82,7 +82,7 @@ function stockInventory() {
   itemLeft.forEach((e) => {
     if (parseInt(e.textContent) === 0) {
       e.closest(".item-containers").style.opacity = 0.4;
-      e.parentElement.nextElementSibling.textContent = "Out of Stock";
+      e.parentElement.nextElementSibling.textContent = " ";
       e.parentElement.nextElementSibling.disabled = true;
     }
   });

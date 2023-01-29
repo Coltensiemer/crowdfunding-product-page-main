@@ -223,7 +223,7 @@ ul {
 }
 
 /* END OF ABOUT INFO */
-
+/* THESES EFFECT BOTH ABOUT AND DIALOG */
 .item-containers {
   display: flex;
   flex-direction: column;
@@ -232,30 +232,32 @@ ul {
   border: 0.5px var(--dark-gray) solid;
   border-radius: 2%;
   margin: 1em;
-  padding: 2em;
+  padding: 1em;
 }
 
 .item-pledge {
   color: var(--Moderate-cyan);
   font-size: var(--font-size-medium);
+  margin-bottom: 1em;
 }
 
 .item-para {
   color: var(--dark-gray);
   text-align: left;
+  line-height: 1.5em;
 }
 
 .item-left {
   font-size: var(--font-size-small);
   color: var(--dark-gray);
+  padding: 2em 1em;
 }
 
 .number {
   position: relative;
-  margin-right: .2em;
-  top: 5px;
-  padding: 2px;
-  font-size: var(--font-size-large);
+  margin-right: 0.2em !important;
+  top: 5px !important;
+  font-size: var(--font-size-large) !important;
   color: var(--black);
 }
 
@@ -287,16 +289,6 @@ dialog {
   background: rgba(0, 0, 0, 0.5);
 }
 
-@media (min-width: 590px) {
-  dialog {
-    max-width: 600px;
-  }
-
-  #model-container {
-    margin: 0 auto !important;
-  }
-}
-
 #model-container {
   display: block;
   top: 20%;
@@ -322,58 +314,43 @@ dialog {
   grid-template-rows: [row-start] 30% [row-end] auto;
 }
 
-@media (min-width: 500px) {
-  .plege-select {
-    display: flex;
-    margin: 0;
-  }
-  .item-containers {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: repeat(3, auto);
-  }
+.pledge-container {
+  /* display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: repeat(3, auto); */
+}
 
-  .pledge-select {
-    grid-area: 1/2/1/2;
-    
-  }
+.pledge-select {
+  /* grid-area: 1/2/1/2; */
+}
 
-  .item-title {
-    grid-area: 2/1/2/2;
-    margin: auto;
-    font-size: var(--font-size-large);
-  }
-  .item-pledge {
-    margin: auto;
-    font-size: var(--font-size-large);
-    align-self: flex-end;
-  }
-  .item-para {
-    grid-area: 2 / 1 / 3 / 3;
-    margin-left: 1.1em;
-    line-height: 1.5em !important;
-  
-  }
+.product-title {
+  /* grid-area: 2/1/2/2; */
 
-  .number { 
-   position: relative;
-   top: 0; 
-    padding: 0;
-    margin: auto;
-    font-size: var(--font-size-medium); 
-  }
+  font-size: var(--font-size-large);
+}
+.product-pledge {
+  font-size: var(--font-size-large);
+  align-self: flex-end;
+}
+.pledge-para {
+  /* grid-area: 2 / 1 / 3 / 3; */
 
-  .item-left {
-    margin-right: 5em !important; 
-    margin: auto;
-    padding: 0;
-    font-size: var(--font-size-medium); 
-    grid-area: 1/2/2/3;
-    margin: auto;
-    align-self: flex-end;
-  }
+  line-height: 1.5em !important;
+}
 
+.number {
+  position: relative;
+  top: 0;
+  padding: 0;
+  margin: auto;
+  font-size: var(--font-size-medium);
+}
 
+.product-left {
+  font-size: var(--font-size-medium);
+  grid-area: 1/2/2/3;
+  align-self: flex-start;
 }
 
 .selected-radio {
@@ -405,31 +382,30 @@ dialog {
   overflow: visible;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Middle Line in dialog */
-.line-pledge {
-  width: 60px;
-  height: 20px;
+/* .line-pledge {
   color: var(--dark-gray);
-}
+} */
 
 .pledge-lable {
+  padding-top: 1em;
+  width: 100%;
+  text-align: center;
   border-top: 1px solid var(--dark-gray);
   color: var(--dark-gray);
   font-weight: var(--weight-medium);
-  width: 100%;
-  padding: 1em;
-  margin: auto;
-  position: relative;
-  left: -30px;
-  text-align: center;
 }
 
 .input-btn-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 1em;
+  padding-top: 1em;
 }
 
 .cost-container {
@@ -440,9 +416,8 @@ dialog {
   align-items: center;
   border: var(--dark-gray) 1px solid;
   border-radius: var(--button-radius);
-  margin: auto;
-  width: 120px;
-  height: 60px;
+  width: 100px;
+  height: 40px;
 }
 
 input[name="costpledge"] {
@@ -466,7 +441,8 @@ label[for="costpledge"] {
 
 .pledge-reward-btn {
   padding: 0.5em;
-  height: 60px;
+  width: 100px;
+  height: 40px;
 }
 
 /* ENDING DIALOG */
@@ -479,12 +455,6 @@ label[for="costpledge"] {
   background: white;
   margin: auto;
   overflow-y: hidden;
-}
-
-@media (min-width: 590px) {
-  .endingModel {
-    width: 40%;
-  }
 }
 
 .endingModel::backdrop {
@@ -529,3 +499,124 @@ label[for="costpledge"] {
   font-size: var(--font-size-small);
   width: 75px;
 }
+/* 
+//////////MEDIA  */
+
+@media (min-width: 590px) {
+  section {
+    margin: auto;
+    max-width: 40em;
+  }
+
+  .item-containers {
+    max-width: 600px !important;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "item-title . item-pledge"
+      "item-para item-para item-para"
+      "item-left . reward-btn";
+
+      align-items: start;
+  }
+
+  .item-title {
+    grid-area: item-title;
+    /* position: relative;
+    left: -1em; */
+    
+    font-size: var(--font-size-normal);
+  }
+  .item-pledge {
+    
+    grid-area: item-pledge;
+  }
+  .item-para {
+    grid-area: item-para;
+    line-height: 2em !important;
+  }
+  .item-left {
+    grid-area: item-left;
+    position: relative;
+    left: -5em;
+    top: -2em;
+  }
+  .reward-btn {
+    grid-area: reward-btn;
+    position: relative;
+    left: 2em;
+  }
+
+
+
+
+  dialog {
+    max-width: 600px;
+  }
+
+  .pledge-container_no-reward { 
+    display: block;
+  }
+
+  #model-container {
+    margin: 0 auto !important;
+  }
+
+  .plege-select {
+    display: flex;
+    margin: 0;
+  }
+
+  .endingModel {
+    width: 40%;
+  }
+
+  .pledge-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .grid-title  {
+    padding-left: 1em !important;
+  }
+
+  .grid-pledge { 
+    padding-left: 1em !important;
+  }
+
+  .pledge-select {
+    grid-area: 1/2/1/2;
+  }
+
+  .pledge-para { 
+    grid-area: 2 / 1 / 3 / 3;
+    line-height: 1.5em !important;
+    padding-left: 2em !important;
+  }
+
+  .product-left {
+    font-size: var(--font-size-medium);
+    grid-area: 1/2/2/3;
+    align-self: flex-start;
+    padding: 0 !important; 
+    position: relative;
+    left: 4em; 
+    top: 0em; 
+  }
+
+
+.pledge { 
+  grid-area: 4/1/4/3;
+  display: flex !important; 
+  flex-direction: row !important;
+}
+
+.pledge-label { 
+ text-align: start;
+}
+
+} 
+ 
