@@ -9,6 +9,7 @@ const selectRadio = document.querySelectorAll(".selected-radio"); // radio butto
 const closeBTN = document.querySelector(".close-btn");
 const inputPledgeValue = document.getElementsByName("costpledge"); // placeholder values for input
 const endingButton = document.querySelector(".endingbutton"); 
+const bookmark = document.querySelector(".bookmark"); 
 
 // DISPLAYS
 const modelContainer = document.getElementById("model-container"); // Model Container
@@ -82,7 +83,7 @@ function stockInventory() {
   itemLeft.forEach((e) => {
     if (parseInt(e.textContent) === 0) {
       e.closest(".item-containers").style.opacity = 0.4;
-      e.parentElement.nextElementSibling.textContent = " ";
+      e.parentElement.nextElementSibling.textContent = "Out of Stock";
       e.parentElement.nextElementSibling.disabled = true;
     }
   });
@@ -130,8 +131,9 @@ selectRadio.forEach((e) => {
 
     if (e.checked) {
       e.parentElement.parentElement.lastElementChild.classList.remove(
-        "visible"
-      );
+        "visible");
+        e.parentElement.parentElement.lastElementChild.classList.remove(
+          "displayFlex" );
       e.parentElement.parentNode.classList.add("borderActive");
     }
   });
@@ -143,7 +145,6 @@ function OpenEndingModel() {
 
   endingModel.showModal(); 
   document.body.classList.add('overflow'); 
-  console.log('works opend ending')
 
 }
 
@@ -211,12 +212,14 @@ continuePledge.forEach((e) => {
         displayBacker(totalBackers);
         updateProgressBar(valueBacked);
 
+
+
         for (let i = 0; i < products.length; i++) {
           if (e.dataset.id == products[i].id) {
           products[i].left -= 1;
           itemLeft[i].textContent = products[i].left;
           productLeft[i].textContent = products[i].left;
-            console.log(itmeLeft)
+          
           stockInventory();
           } 
         }
@@ -229,3 +232,17 @@ continuePledge.forEach((e) => {
     }
   );
 });
+
+
+// Bookmark 
+bookmark.addEventListener('click', () => { 
+
+  if (!bookmark.checked) { 
+  document.querySelector(".bookmark-circle").style.fill="hsl(176, 50%, 47%)"
+  document.querySelector(".bookmark-flag").style.fill="white"
+  } 
+  else if (bookmark.check) { 
+    document.querySelector(".bookmark-flag").style.fill="red"
+  }
+  }
+})

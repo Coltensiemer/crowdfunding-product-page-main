@@ -84,6 +84,10 @@ p {
   border: 2px var(--Moderate-cyan) solid !important;
 }
 
+.displayFlex { 
+  display: flex !important; 
+}
+
 /* HEADER START  */
 header {
   display: flex;
@@ -137,6 +141,15 @@ ul {
   font-weight: var(--weight-light);
 }
 
+.buttons-containers { 
+  width: 100%;
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
+  gap: 1em; 
+
+}
+
 .backtoproj {
   padding: 1em;
   width: 150px;
@@ -145,12 +158,27 @@ ul {
   border-radius: 2em;
   background-color: var(--Moderate-cyan);
   color: white;
-  margin-bottom: 5em;
 }
 .bookmark {
   position: relative;
-  top: 25px;
-  margin: 0.25em;
+  cursor: pointer;
+  z-index: 999;
+   
+}
+
+.bookmark-effect { 
+  position: relative;  
+  height: 30px;
+  width:90px;
+  top: -1.5em; 
+  left: -.5em;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: .5em;
+  border: none !important;
+  background-color: var(--whitish); 
+  color: var(--dark-gray); 
+  z-index: 0;
 }
 
 /* END OF FIRST CONTAINER */
@@ -265,7 +293,6 @@ ul {
 .reward-btn {
   padding: 1em;
   width: 150px;
-  /* Figure out border radius */
   border: none;
   background-color: var(--Moderate-cyan);
   color: white;
@@ -278,11 +305,13 @@ ul {
 dialog {
   height: fit-content;
   border: none;
-  margin: 0 auto;
-  max-height: calc(100vh - 200px);
-  padding-bottom: 8em;
+  margin: auto;
+
+  max-height: calc(90vh);
+
   overflow-y: auto;
   scroll-behavior: smooth;
+  overscroll-behavior: contain;
 }
 
 .back-dialog::backdrop {
@@ -290,8 +319,8 @@ dialog {
 }
 
 #model-container {
-  display: block;
-  top: 20%;
+ 
+  top: 4em;
   background: white;
   margin: 0px 25px 25px;
   padding: 25px;
@@ -447,14 +476,16 @@ label[for="costpledge"] {
 
 /* ENDING DIALOG */
 .endingModel {
+
   border-radius: var(--container-radius);
   position: fixed;
-  top: 20%;
+  
   width: 80%;
-  height: 175px;
+
   background: white;
   margin: auto;
-  overflow-y: hidden;
+  
+  overflow-y: visible; 
 }
 
 .endingModel::backdrop {
@@ -462,10 +493,12 @@ label[for="costpledge"] {
 }
 
 .endingModel-container {
+  
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 1em;
+
 }
 
 .endingsvg {
@@ -499,10 +532,64 @@ label[for="costpledge"] {
   font-size: var(--font-size-small);
   width: 75px;
 }
+
+
+
+
 /* 
 //////////MEDIA  */
 
+@media (max-width: 600px) {
+  .bookmark-effect { 
+    display: none;
+  }
+  
+}
+
 @media (min-width: 590px) {
+
+#hero { 
+  background-size: cover; 
+  background-image: url('images/image-hero-desktop.jpg') center no-repeat !important; 
+}
+
+
+.amounts-overview { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "amount-backed line total-backed line-2 amount-backed2"
+    "amount-form line amount-form2 line-2 amount-form3"
+    "progress-container progress-container progress-container progress-container progress-container"; 
+}
+
+
+
+
+  .progess-container { grid-area: progress-container;
+  width: 100%; }
+  .amount-backed { grid-area: amount-backed; }
+  .amount-form { grid-area: amount-form; }
+  .line { grid-area: line; 
+  transform: rotate(90deg);}
+  .line-2 { grid-area: line-2; 
+    transform: rotate(90deg);}
+  .total-backed { grid-area: total-backed; }
+  .amount-form2 { grid-area: amount-form2; }
+  .amount-backed2 { grid-area: amount-backed2; }
+  .amount-form3 { grid-area: amount-form3; }
+
+
+
+  .buttons-containers { 
+    width: 100%;
+    display: flex;
+    align-items: center !important;
+    justify-content: space-around; 
+  
+  }
   section {
     margin: auto;
     max-width: 40em;
@@ -610,13 +697,22 @@ label[for="costpledge"] {
 
 .pledge { 
   grid-area: 4/1/4/3;
-  display: flex !important; 
+  margin-top: 1em !important;
+  padding: 0 !important;
+ 
   flex-direction: row !important;
+  border-top: 1px solid var(--dark-gray); 
+  
+
 }
 
-.pledge-label { 
- text-align: start;
+
+.pledge-lable { 
+ text-align: start; 
+ border: none !important;
 }
+
+
 
 } 
  
