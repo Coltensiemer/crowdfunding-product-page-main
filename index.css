@@ -50,7 +50,7 @@ body {
 
 main {
   margin: 0 auto;
-  z-index: 2;
+  z-index: -1;
 }
 
 section {
@@ -101,6 +101,7 @@ header {
 }
 
 .hamburger {
+ 
   padding-top: 20px;
   padding-right: 20px;
 }
@@ -113,8 +114,30 @@ header {
   background-repeat: none;
 }
 
+
 ul {
-  display: none;
+  outline: red 2px solid; 
+  background-color: white;
+
+}
+
+nav { 
+  position: absolute;
+  top: 10%; 
+  left: 4 !important;
+  width: calc(100vw - 2 * 11.5vw); 
+  opacity: 999;
+  box-shadow: 0 150px 150px rgb(0 0 0 / 40%);
+
+  background-color: white;
+}
+
+ul>li { 
+  padding: 1em; 
+  color: black;
+
+  font-size: var(--font-size-large);
+  list-style: none;
 }
 
 /* Header END */
@@ -129,11 +152,13 @@ ul {
   border-radius: 2%;
   /* border: var(--dark-gray) .25px transparent; */
   /* outline: var(--dark-gray) .001em solid; */
+  z-index: -1;
 }
 
 .logo {
   position: relative;
   top: -25px;
+  z-index: -1;
 }
 
 .para {
@@ -162,7 +187,7 @@ ul {
 .bookmark {
   position: relative;
   cursor: pointer;
-  z-index: 999;
+  z-index: 2;
    
 }
 
@@ -320,11 +345,12 @@ dialog {
 
 #model-container {
  
-  top: 4em;
+  top: 2em;
   background: white;
-  margin: 0px 25px 25px;
+  margin: 0px 45px 45px ;
   padding: 25px;
   border-radius: var(--container-radius);
+  overflow: scroll;
 }
 
 .title-close-container {
@@ -550,8 +576,23 @@ label[for="costpledge"] {
 
 #hero { 
   background-size: cover; 
-  background-image: url('images/image-hero-desktop.jpg') center no-repeat !important; 
+  background-image: url('images/image-hero-desktop.jpg') !important; 
 }
+
+ul {
+  margin-top: 1.5em;
+  position: relative;
+  left: -110px;
+  width: 150%; 
+  display: flex;
+ list-style: none;
+  justify-content: space-around;
+}
+
+ul>li { 
+  color: white; 
+}
+
 
 
 .amounts-overview { 
