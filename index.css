@@ -50,7 +50,7 @@ body {
 
 main {
   margin: 0 auto;
-  z-index: -1;
+  z-index: 1;
 }
 
 section {
@@ -101,9 +101,15 @@ header {
 }
 
 .hamburger {
- 
+  display: block;
   padding-top: 20px;
   padding-right: 20px;
+}
+.close-nav { 
+  display: none;
+  position: relative;
+ left: -37px; 
+ top: 20px; 
 }
 
 #hero {
@@ -116,20 +122,26 @@ header {
 
 
 ul {
-  outline: red 2px solid; 
   background-color: white;
-
+  border-radius: var(--container-radius) !important; 
 }
 
 nav { 
-  position: absolute;
-  top: 10%; 
-  left: 4 !important;
-  width: calc(100vw - 2 * 11.5vw); 
-  opacity: 999;
-  box-shadow: 0 150px 150px rgb(0 0 0 / 40%);
+  display: none;
+ 
+}
 
+.nav-active { 
+  display: block;
+  position: absolute !important;
+  top: 10% !important; 
+  left: 5% !important; 
+  width: 90% !important;
+  z-index: 999;
+  box-shadow: 0 150px 150px rgb(0 0 0 / 40%);
+margin: 0 auto !important;
   background-color: white;
+  border-radius: 20px!important;
 }
 
 ul>li { 
@@ -138,6 +150,7 @@ ul>li {
 
   font-size: var(--font-size-large);
   list-style: none;
+  cursor: pointer;
 }
 
 /* Header END */
@@ -152,13 +165,13 @@ ul>li {
   border-radius: 2%;
   /* border: var(--dark-gray) .25px transparent; */
   /* outline: var(--dark-gray) .001em solid; */
-  z-index: -1;
+  z-index: 1;
 }
 
 .logo {
   position: relative;
   top: -25px;
-  z-index: -1;
+  z-index: 1;
 }
 
 .para {
@@ -575,22 +588,48 @@ label[for="costpledge"] {
 @media (min-width: 590px) {
 
 #hero { 
-  background-size: cover; 
-  background-image: url('images/image-hero-desktop.jpg') !important; 
+  background-size: contain; 
+  background-image: url('/images/image-hero-desktop.jpg') no-repeat !important; 
+ 
+}
+.hamburger { 
+  display: none;
+}
+
+.close-nav { 
+  display: none;
+}
+
+nav { 
+  display: block;
+  position: relative;
+  box-shadow: none;
+  background-color: transparent;
+  margin: 0;
 }
 
 ul {
+  outline: none;
   margin-top: 1.5em;
-  position: relative;
+  position: relative !important;
   left: -110px;
   width: 150%; 
   display: flex;
  list-style: none;
   justify-content: space-around;
+  background-color: transparent;
 }
 
 ul>li { 
+  font-size: var(--font-size-small);
   color: white; 
+ 
+}
+
+ul>li:hover { 
+
+  color: var(--whitish); 
+ 
 }
 
 

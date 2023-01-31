@@ -10,12 +10,15 @@ const closeBTN = document.querySelector(".close-btn");
 const inputPledgeValue = document.getElementsByName("costpledge"); // placeholder values for input
 const endingButton = document.querySelector(".endingbutton"); 
 const bookmark = document.querySelector(".bookmark"); 
+const hamburgMenu = document.querySelector(".hamburger"); //HAMBURGER MENU 
+const closeMenu = document.querySelector('.close-nav'); 
 
 // DISPLAYS
 const modelContainer = document.getElementById("model-container"); // Model Container
 const pledgeContainer = document.querySelectorAll(".pledge"); // Pledge containers
 const progressionBar = document.querySelector(".progession");
 const endingModel = document.querySelector(".endingModel"); 
+const bookmarkEffect = document.querySelector(".bookmark-effect");
 
 //HTML DISPLAY CLASSES
 const valueBackedhtml = document.querySelector(".amount-backed");
@@ -111,12 +114,34 @@ selectReward.forEach((select) => {
   });
 });
 
-//CLOSE MODEL SECLTION DISPLAY
-closeBTN.addEventListener("click", (e) => {
-  e.preventDefault();
-  modelContainer.close();
-  document.body.classList.remove('overflow'); 
+closeBTN.addEventListener('click', ()=>{ 
+  modelContainer.close()
+})
+
+
+// HAMBURGER MENU 
+hamburgMenu.addEventListener('click', () => { 
+  document.getElementById('navbar-container').classList.add('nav-active');
+  hamburgMenu.style.display = ('none'); 
+
+  if (hamburgMenu.style.display === 'none') { 
+    closeMenu.style.display = "block"
+  }
+
 });
+
+//close nav menu if menu is OPEN
+closeMenu.addEventListener('click', () => { 
+  document.getElementById('navbar-container').classList.remove('nav-active');
+  closeMenu.style.display = "none"; 
+
+  if (hamburgMenu.style.display === 'none') {
+   hamburgMenu.style.display = ('block');
+  }
+}); 
+
+
+
 
 //Open Radios
 selectRadio.forEach((e) => {
@@ -197,11 +222,13 @@ continuePledge.forEach((e) => {
   e.addEventListener(
     "click",
     () => {
+
+      const disable = false; 
       const inputElement = e.previousElementSibling.lastElementChild;
       const inputMin = +inputElement.min;
       let delclaredPrice = inputElement.value;
       
-    
+      
 
       if (delclaredPrice >= inputMin) {
         
@@ -212,6 +239,7 @@ continuePledge.forEach((e) => {
         displayBacker(totalBackers);
         updateProgressBar(valueBacked);
 
+        inputElement.textContent = null; 
 
 
         for (let i = 0; i < products.length; i++) {
@@ -227,22 +255,41 @@ continuePledge.forEach((e) => {
        
         
       }
-  
 
+      else if( delclaredPrice < inputMin || delclaredPrice == " ") { 
+        console.log(['not working'])
+        setTimeout(() => { e.disabled = true;  
+        }, 1000)
+      
+      }
+  
+      
     }
   );
 });
 
 
 // Bookmark 
-bookmark.addEventListener('click', () => { 
+bookmark.addEventListener('click', (e) => { 
+ e.preventDefault()
+  const fillMode =  document.querySelector(".bookmark-circle").style.fill
 
-  if (!bookmark.checked) { 
+  if ( fillMode == "black") { 
   document.querySelector(".bookmark-circle").style.fill="hsl(176, 50%, 47%)"
   document.querySelector(".bookmark-flag").style.fill="white"
-  } 
-  else if (bookmark.check) { 
-    document.querySelector(".bookmark-flag").style.fill="red"
+
+  bookmarkEffect.style.color="hsl(176, 50%, 47%)";
+  bookmarkEffect.textContent = "Bookmarked"; 
+
   }
+
+  else { 
+    document.querySelector(".bookmark-circle").style.fill="black"
+    document.querySelector(".bookmark-flag").style.fill="#B1B1B1"
+
+    bookmarkEffect.style.color="hsl(0, 0%, 48%)"; 
+    bookmarkEffect.textContent = "Bookmark"; 
   }
-})
+ 
+  }
+) 
