@@ -8,16 +8,16 @@ const continuePledge = document.querySelectorAll(".pledge-reward-btn"); // conti
 const selectRadio = document.querySelectorAll(".selected-radio"); // radio buttons
 const closeBTN = document.querySelector(".close-btn");
 const inputPledgeValue = document.getElementsByName("costpledge"); // placeholder values for input
-const endingButton = document.querySelector(".endingbutton"); 
-const bookmark = document.querySelector(".bookmark"); 
-const hamburgMenu = document.querySelector(".hamburger"); //HAMBURGER MENU 
-const closeMenu = document.querySelector('.close-nav'); 
+const endingButton = document.querySelector(".endingbutton");
+const bookmark = document.querySelector(".bookmark");
+const hamburgMenu = document.querySelector(".hamburger"); //HAMBURGER MENU
+const closeMenu = document.querySelector(".close-nav");
 
 // DISPLAYS
 const modelContainer = document.getElementById("model-container"); // Model Container
 const pledgeContainer = document.querySelectorAll(".pledge"); // Pledge containers
 const progressionBar = document.querySelector(".progession");
-const endingModel = document.querySelector(".endingModel"); 
+const endingModel = document.querySelector(".endingModel");
 const bookmarkEffect = document.querySelector(".bookmark-effect");
 
 //HTML DISPLAY CLASSES
@@ -104,102 +104,99 @@ stockInventory();
 backThisProjectBtn.addEventListener("click", (e) => {
   e.preventDefault();
   modelContainer.showModal();
-  document.body.classList.add('overflow'); 
+  document.body.classList.add("overflow");
 });
 
 selectReward.forEach((select) => {
   select.addEventListener("click", () => {
     modelContainer.showModal();
-    document.body.classList.add('overflow'); 
+    document.body.classList.add("overflow");
   });
 });
 
-closeBTN.addEventListener('click', ()=>{ 
-  modelContainer.close()
-})
+closeBTN.addEventListener("click", () => {
+  modelContainer.close();
+});
 
+// HAMBURGER MENU
+hamburgMenu.addEventListener("click", () => {
+  document.getElementById("navbar-container").classList.add("nav-active");
+  hamburgMenu.style.display = "none";
 
-// HAMBURGER MENU 
-hamburgMenu.addEventListener('click', () => { 
-  document.getElementById('navbar-container').classList.add('nav-active');
-  hamburgMenu.style.display = ('none'); 
-
-  if (hamburgMenu.style.display === 'none') { 
-    closeMenu.style.display = "block"
+  if (hamburgMenu.style.display === "none") {
+    closeMenu.style.display = "block";
   }
-
 });
 
 //close nav menu if menu is OPEN
-closeMenu.addEventListener('click', () => { 
-  document.getElementById('navbar-container').classList.remove('nav-active');
-  closeMenu.style.display = "none"; 
+closeMenu.addEventListener("click", () => {
+  document.getElementById("navbar-container").classList.remove("nav-active");
+  closeMenu.style.display = "none";
 
-  if (hamburgMenu.style.display === 'none') {
-   hamburgMenu.style.display = ('block');
+  if (hamburgMenu.style.display === "none") {
+    hamburgMenu.style.display = "block";
   }
-}); 
-
-
-
+});
 
 //Open Radios
-selectRadio.forEach((e) => {
-  e.addEventListener("click", () => {
-    document.querySelectorAll(".item-containers").forEach((e) => {
-      e.classList.remove("borderActive");
+selectRadio.forEach((e) => {            // loops through all radio buttons with class "select-radio"
+  e.addEventListener("click", () => {   // adds a "click" event listener to each radio button
+    document.querySelectorAll(".item-containers").forEach((e) => {   // selects all elements with class "item-containers"
+      e.classList.remove("borderActive");    // removes class "borderActive" from all "item-containers" elements
     });
 
-    pledgeContainer.forEach((e) => {
-      e.classList.add("visible");
+    pledgeContainer.forEach((e) => {  // selects all elements with class "pledge-container"
+      e.classList.add("visible");    // adds class "visible" to all "pledge-container" elements
     });
 
-    if (e.checked) {
+    if (e.checked) {    // checks if the clicked radio button is checked
       e.parentElement.parentElement.lastElementChild.classList.remove(
-        "visible");
-        e.parentElement.parentElement.lastElementChild.classList.remove(
-          "displayFlex" );
-      e.parentElement.parentNode.classList.add("borderActive");
+        "visible"
+      );   // removes class "visible" from the last child element of the parent element of the clicked radio button
+      e.parentElement.parentElement.lastElementChild.classList.remove(
+        "displayFlex"
+      );   // removes class "displayFlex" from the last child element of the parent element of the clicked radio button
+      e.parentElement.parentNode.classList.add("borderActive");  // adds class "borderActive" to the parent element of the clicked radio button
     }
   });
 });
 
-
-// Open Ending Model 
-function OpenEndingModel() { 
-
-  endingModel.showModal(); 
-  document.body.classList.add('overflow'); 
-
+// Open Ending Model
+function OpenEndingModel() {
+  endingModel.showModal();
+  document.body.classList.add("overflow");
 }
 
-// CLose ending model 
-endingButton.addEventListener('click', (e) => { 
-  e.preventDefault(); 
-endingModel.close();
-document.body.classList.remove('overflow'); 
-})
+// CLose ending model
+endingButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  endingModel.close();
+  document.body.classList.remove("overflow");
+});
 // MODEL INPUT PlaceHOLDER
 products.forEach((obj, index) => {
   inputPledgeValue[index].setAttribute("min", obj.min);
 });
 
-// Display of value added
 
+// function to display a value as a formatted dollar amount
 function displayValue(e) {
-  let stringNumbers = e.toString();
-  let lastthree = stringNumbers.length - 3;
+  let stringNumbers = e.toString(); // convert input value to a string
+  let lastthree = stringNumbers.length - 3; // determine the index of the last three digits
   let curentValue =
-    "$" +
-    stringNumbers.slice(0, lastthree) +
-    "," +
-    stringNumbers.slice(lastthree);
+    "$" + // add dollar sign to the beginning of the formatted string
+    stringNumbers.slice(0, lastthree) + // slice the string to include all digits except the last three
+    "," + // add a comma to separate the last three digits
+    stringNumbers.slice(lastthree); // add the last three digits to the string
 
+  // update the text content of the specified element with the formatted string
   return (valueBackedhtml.textContent = curentValue);
 }
-displayValue(valueBacked); // show default
 
-//Display of backers amount backed
+displayValue(valueBacked); // call the function to display the default value
+
+
+// function to display the number of backers with commas
 function displayBacker(e) {
   let stringNumbers = e.toString();
   let lastthree = stringNumbers.length - 3;
@@ -210,6 +207,7 @@ function displayBacker(e) {
 }
 displayBacker(totalBackers); //show default
 
+// function to update the progress bar based on the current amount backed
 function updateProgressBar(e) {
   let total = 100000;
   let progressWidth = (e * 100) / total;
@@ -219,77 +217,74 @@ function updateProgressBar(e) {
 updateProgressBar(valueBacked);
 
 continuePledge.forEach((e) => {
-  e.addEventListener(
-    "click",
-    () => {
+  e.addEventListener("click", () => {
+    
+    const inputElement = e.previousElementSibling.lastElementChild;
+    const inputMin = +inputElement.min;
+    let declaredPrice = inputElement.value;
 
-      const disable = false; 
-      const inputElement = e.previousElementSibling.lastElementChild;
-      const inputMin = +inputElement.min;
-      let delclaredPrice = inputElement.value;
-      
-      
+    // Check if the declared price is greater than or equal to the minimum pledge amount
+    if (declaredPrice >= inputMin) {
+      valueBacked += +declaredPrice; // Add the declared price to the total amount backed
+      totalBackers += 1; // Increase the total number of backers
 
-      if (delclaredPrice >= inputMin) {
-        
-        valueBacked += +delclaredPrice;
-        totalBackers += 1;
+      displayValue(valueBacked); // Update the displayed value
+      displayBacker(totalBackers); // Update the displayed number of backers
+      updateProgressBar(valueBacked); // Update the progress bar
 
-        displayValue(valueBacked);
-        displayBacker(totalBackers);
-        updateProgressBar(valueBacked);
+      console.log("here")
 
-        inputElement.textContent = null; 
+      inputElement.value = ""; // Clear the input field
+     
 
 
-        for (let i = 0; i < products.length; i++) {
-          if (e.dataset.id == products[i].id) {
+      for (let i = 0; i < products.length; i++) {
+
+        console.log("second")
+        console.log(products[i])
+        console.log(e.dataset)
+       
+        if (e.dataset === products[i].id) {
+          console.log("third")
           products[i].left -= 1;
           itemLeft[i].textContent = products[i].left;
           productLeft[i].textContent = products[i].left;
-          
-          stockInventory();
-          } 
-        }
-        OpenEndingModel(); 
-       
-        
-      }
+      
 
-      else if( delclaredPrice < inputMin || delclaredPrice == " ") { 
-        console.log(['not working'])
-        setTimeout(() => { e.disabled = true;  
-        }, 1000)
-      
+          stockInventory();
+        }
       }
-  
-      
+      OpenEndingModel(); // Open the success modal
     }
-  );
+    // Disable the button if the declared price is less than the minimum pledge amount or empty
+    else if (declaredPrice < inputMin || declaredPrice.trim() === "") {
+      e.disabled = true;
+      setTimeout(() => {
+        e.disabled = false; // Re-enable the button after 1 second
+      }, 1000);
+    }
+  });
 });
 
 
-// Bookmark 
-bookmark.addEventListener('click', (e) => { 
- e.preventDefault()
-  const fillMode =  document.querySelector(".bookmark-circle").style.fill
+// add event listener to the bookmark button
+bookmark.addEventListener("click", (e) => {
+  e.preventDefault();
+  const fillMode = document.querySelector(".bookmark-circle").style.fill;
 
-  if ( fillMode == "black") { 
-  document.querySelector(".bookmark-circle").style.fill="hsl(176, 50%, 47%)"
-  document.querySelector(".bookmark-flag").style.fill="white"
+  // toggle the bookmark button between bookmarked and not bookmarked
+  if (fillMode == "black") {
+    document.querySelector(".bookmark-circle").style.fill =
+      "hsl(176, 50%, 47%)";
+    document.querySelector(".bookmark-flag").style.fill = "white";
 
-  bookmarkEffect.style.color="hsl(176, 50%, 47%)";
-  bookmarkEffect.textContent = "Bookmarked"; 
+    bookmarkEffect.style.color = "hsl(176, 50%, 47%)";
+    bookmarkEffect.textContent = "Bookmarked";
+  } else {
+    document.querySelector(".bookmark-circle").style.fill = "black";
+    document.querySelector(".bookmark-flag").style.fill = "#B1B1B1";
 
+    bookmarkEffect.style.color = "hsl(0, 0%, 48%)";
+    bookmarkEffect.textContent = "Bookmark";
   }
-
-  else { 
-    document.querySelector(".bookmark-circle").style.fill="black"
-    document.querySelector(".bookmark-flag").style.fill="#B1B1B1"
-
-    bookmarkEffect.style.color="hsl(0, 0%, 48%)"; 
-    bookmarkEffect.textContent = "Bookmark"; 
-  }
- 
-  }
-) 
+});
